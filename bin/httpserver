@@ -1,4 +1,18 @@
 #!/usr/bin/env php
 <?php
-$index = rtrim(__DIR__, "bin") . "index.php";
-system("php -S 127.0.0.1:1234 $index");
+require "dependencies/functions.php";
+
+$rootDir = rtrim(__DIR__, DIRECTORY_SEPARATOR . "bin");
+$index = $rootDir . DIRECTORY_SEPARATOR . "index.php";
+
+CLIwrite("\n\nProject root directory: ");
+CLIchangeTextColor('dark-gray');
+CLIwrite($rootDir . "\n");
+CLIchangeTextColor();
+
+CLIwrite("Index file directory: ");
+CLIchangeTextColor('dark-gray');
+CLIwrite($index . "\n\n\n");
+CLIchangeTextColor();
+
+system("cd $rootDir && php -S 127.0.0.1:1234 $index");
