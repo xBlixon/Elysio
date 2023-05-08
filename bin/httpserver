@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+$index = rtrim(__DIR__, "bin") . "index.php";
+system("php -S 127.0.0.1:1234 $index");
