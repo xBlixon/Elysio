@@ -1,8 +1,8 @@
 <?php
 function autoload(string $classname)
 {
-    // equivalent of /app/Elysio/.../class.php
-    require _APP . DIRECTORY_SEPARATOR . $classname . ".php";
+    $classname = str_replace("\\", OS_SLASH, $classname);
+    require _APP . OS_SLASH . $classname . ".php"; // equivalent of /app/Elysio/.../class.php
 }
 
 spl_autoload_register('autoload');
