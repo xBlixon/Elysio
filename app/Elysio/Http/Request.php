@@ -8,35 +8,12 @@ class Request
 {
     private static $instance = null;
 
-    private string $method;
+    readonly string $method;
 
-    private string $path;
+    readonly string $path;
 
-    private array $params = [];
+    readonly array $params;
 
-    /**
-     * @return string
-     */
-    public function getMethod(): string
-    {
-        return $this->method;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPath(): string
-    {
-        return $this->path;
-    }
-
-    /**
-     * @return array
-     */
-    public function getParams(): array
-    {
-        return $this->params;
-    }
 
     private function __construct()
     {
@@ -59,21 +36,27 @@ class Request
         $URL = parse_url($_SERVER['REQUEST_URI']);
         $this->path = $URL['path'];
 
-        if(!array_key_exists('query', $URL)) return;
+        if(!array_key_exists('query', $URL))
+        {
+            $this->params = [];
+            return;
+        }
 
         $params = explode("&", $URL['query']);
 
+        $processedParams = [];
         foreach ($params as $param)
         {
             $param = explode("=", $param);
-            $this->params[$param[0]] = $param[1];
+            $processedParams[$param[0]] = $param[1];
         }
+        $this->params = $processedParams;
     }
 
     public function doesRouteMatch(Route $route): bool
     {
         if(
-            $this->getPath() === $route->getPath()
+            $this->path === $route->path
             &&
             $this->doesRouteAllowMethod($route)
         ) return true;
