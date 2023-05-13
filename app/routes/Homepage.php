@@ -9,6 +9,5 @@ use Elysio\Http\Route;
 #[GET]
 #[POST]
 class Homepage extends Route{}
-$route = new Homepage("/home", "homepage.view.php");
-
+$route = new Homepage("/home", "homepage.view.php", "Home");
 return $route;
