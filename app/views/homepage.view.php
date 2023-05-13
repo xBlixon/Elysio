@@ -1,9 +1,8 @@
-<?php
-use Elysio\Http\Request;
-$request = Request::getInstance();
-?>
-
-<?= ($request->method === 'POST' ? "POST MODE!" : "") ?>
+POST:
+<?= $postMode ?>
+<br>
+QUERY STRING:
+<?= var_dump($query) ?>
 
 <h1>Hello world!</h1>
 <p>Hello world!</p>

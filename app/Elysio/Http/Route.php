@@ -2,7 +2,7 @@
 
 namespace Elysio\Http;
 
-abstract class Route
+abstract class Route implements Routeable
 {
     readonly string $path;
     readonly string $view;
@@ -15,9 +15,9 @@ abstract class Route
         $this->name = $name;
     }
 
-    public function render(): void
+    protected function render(array $variables): void
     {
-        $file = _VIEWS . $this->view;
-        require $file;
+        extract($variables);
+        require (_VIEWS . $this->view);
     }
 }
