@@ -1,5 +1,14 @@
 <?php
 
-use Elysio\Route;
+use Elysio\Http\ANY;
+use Elysio\Http\GET;
+use Elysio\Http\POST;
+use Elysio\Http\Route;
 
-return new Route("/home", "homepage.view.php");
+#[ANY]
+#[GET]
+#[POST]
+class Homepage extends Route{}
+$route = new Homepage("/home", "homepage.view.php");
+
+return $route;

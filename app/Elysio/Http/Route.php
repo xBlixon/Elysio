@@ -1,23 +1,23 @@
 <?php
 
-namespace Elysio;
+namespace Elysio\Http;
 
-class Route
+abstract class Route
 {
-    private string $url;
+    private string $path;
     private string $view;
 
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getPath(): string
     {
-        return $this->url;
+        return $this->path;
     }
 
-    public function __construct(string $url, string $view)
+    public function __construct(string $path, string $view)
     {
-        $this->url = $url;
+        $this->path = $path;
         $this->view = $view;
     }
 
@@ -25,6 +25,5 @@ class Route
     {
         $file = _VIEWS . $this->view;
         require $file;
-        die();
     }
 }
