@@ -4,25 +4,9 @@ namespace Elysio\Http;
 
 abstract class Route
 {
-    private string $path;
-    private string $view;
-    private ?string $name = NULL;
-
-    /**
-     * @return string|null
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPath(): string
-    {
-        return $this->path;
-    }
+    readonly string $path;
+    readonly string $view;
+    readonly ?string $name;
 
     public function __construct(string $path, string $view, ?string $name=NULL)
     {
