@@ -18,11 +18,13 @@ class Homepage extends Route implements Processable
         $request = Request::getInstance();
         $postMode = ($request->method === 'POST' ? "POST MODE!" : NULL);
 
-        $this->render([
-            'postMode' => $postMode,
-            'query' => $request->params
-        ]);
+        $this->render(
+            "homepage.view.php",
+            [
+                'postMode' => $postMode,
+                'query' => $request->params
+            ]);
     }
 }
 
-return new Homepage("/home", "homepage.view.php", "Home");
+return new Homepage("/home", "Home");
