@@ -1,4 +1,5 @@
 <?php
+namespace Routes;
 
 use Elysio\Http\ANY;
 use Elysio\Http\GET;

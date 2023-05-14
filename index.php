@@ -1,6 +1,6 @@
 <?php
 require "constants.php";
-require "app/autoload/autoload.php";
+require "app/Autoload/autoload.php";
 require "app/router.php";
 ?>
 
