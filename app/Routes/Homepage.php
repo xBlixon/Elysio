@@ -6,6 +6,7 @@ use Elysio\Http\GET;
 use Elysio\Http\POST;
 use Elysio\Http\Processable;
 use Elysio\Http\Request;
+use Elysio\Http\Response;
 use Elysio\Http\Route;
 
 #[ANY]
@@ -13,16 +14,24 @@ use Elysio\Http\Route;
 #[POST]
 class Homepage extends Route implements Processable
 {
-    public function process(): void
+    public function process(): Response
     {
         $request = Request::getInstance();
         $postMode = ($request->method === 'POST' ? "POST MODE!" : NULL);
 
-        $this->render(
-            "homepage.view.php",
-            [
+        if(isset($request->params['redirect']))
+        {
+            return $this->redirectTo("/redirected");
+        }
+
+        if(isset($request->params['json']))
+        {
+            return $this->JSON(['hi'=>'hello']);
+        }
+
+        return $this->render("homepage.view.php", [
                 'postMode' => $postMode,
-                'query' => $request->params
+                'query' => $request->params,
             ]);
     }
 }

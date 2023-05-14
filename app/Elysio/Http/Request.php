@@ -48,7 +48,7 @@ class Request
         foreach ($params as $param)
         {
             $param = explode("=", $param);
-            $processedParams[$param[0]] = $param[1];
+            $processedParams[$param[0]] = ($param[1] ?? "");
         }
         $this->params = $processedParams;
     }
