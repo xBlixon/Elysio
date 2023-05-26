@@ -2,6 +2,7 @@
 
 use Elysio\Http\Processable;
 use Elysio\Http\Request;
+use Elysio\Http\Response;
 use Elysio\Http\Route;
 
 $request = Request::getInstance();
@@ -16,11 +17,13 @@ foreach ($files as $routeFile)
     {
         $response = $route->process();
         $response->applyHeaders();
+        http_response_code($response->getResponseCode());
         echo $response->getBody();
         $rendered = true;
     }
 }
 if(!$rendered)
 {
-    require _VIEWS . "default.view.php";
+    http_response_code(Response::CODE_CLIENT_NOT_FOUND);
+    require _VIEWS . "Errors/not_found.view.php";
 }

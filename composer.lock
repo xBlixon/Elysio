@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/xBlixon/Elysio-Core.git",
-                "reference": "a5f69bcda929bbcc4b002d5f45fbe2c5b9b48bd6"
+                "reference": "1365b9ebacda9ea1f8a0b50aca7bb01cab775200"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xBlixon/Elysio-Core/zipball/a5f69bcda929bbcc4b002d5f45fbe2c5b9b48bd6",
-                "reference": "a5f69bcda929bbcc4b002d5f45fbe2c5b9b48bd6",
+                "url": "https://api.github.com/repos/xBlixon/Elysio-Core/zipball/1365b9ebacda9ea1f8a0b50aca7bb01cab775200",
+                "reference": "1365b9ebacda9ea1f8a0b50aca7bb01cab775200",
                 "shasum": ""
             },
             "require": {
@@ -45,13 +45,15 @@
                 "issues": "https://github.com/xBlixon/Elysio-Core/issues",
                 "source": "https://github.com/xBlixon/Elysio-Core/tree/main"
             },
-            "time": "2023-05-26T16:25:30+00:00"
+            "time": "2023-05-26T19:01:56+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "elysio/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
