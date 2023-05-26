@@ -1,0 +1,16 @@
+{
+    "name": "elysio/framework",
+    "description": "Elysio framework.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Xawier Slupik",
+            "email": "48760619+xBlixon@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "elysio/core": "dev-main"
+    }
+}

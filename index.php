@@ -1,5 +1,4 @@
 <?php
 require "constants.php";
-require "app/Autoload/autoload.php";
+require _PROJECT_ROOT . '/vendor/autoload.php';
 require "app/router.php";
-?>
