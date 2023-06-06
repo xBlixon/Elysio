@@ -1,38 +1,37 @@
 <?php
 namespace Routes;
 
-use Elysio\Http\ANY;
-use Elysio\Http\GET;
-use Elysio\Http\POST;
-use Elysio\Http\Processable;
-use Elysio\Http\Request;
 use Elysio\Http\Response;
 use Elysio\Http\Route;
 
-#[ANY]
-#[GET]
-#[POST]
-class Homepage extends Route implements Processable
+class Homepage extends Route
 {
-    public function process(): Response
+    public function GET(): Response
     {
-        $request = Request::getInstance();
-        $postMode = ($request->method === 'POST' ? "POST MODE!" : NULL);
-
-        if(isset($request->params['redirect']))
-        {
-            return $this->redirectTo("/redirected");
-        }
-
-        if(isset($request->params['json']))
+        if(isset($this->request->params['json']))
         {
             return $this->JSON(['hi'=>'hello']);
         }
 
+        if(isset($this->request->params['redirect']))
+        {
+            return $this->redirectTo("/redirected");
+        }
+
+        $this->response->addHeaders("Some: Header");
+        $this->response->addHeaders("Another: Header");
         return $this->render("homepage.view.php", [
-                'postMode' => $postMode,
-                'query' => $request->params,
-            ]);
+            'method' => 'GET',
+            'query' => $this->request->params
+        ]);
+    }
+
+    public function POST(): Response
+    {
+        return $this->render("homepage.view.php", [
+            'method' => 'POST',
+            'query' => $this->request->params
+        ]);
     }
 }
 

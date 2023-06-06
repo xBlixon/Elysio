@@ -1,7 +1,7 @@
 <?php include "_base.php" ?>
 
-POST:
-<?= $postMode ?>
+METHOD:
+<?= $method ?>
 <br>
 QUERY STRING:
 <?= var_dump($query) ?>
