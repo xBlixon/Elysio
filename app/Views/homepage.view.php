@@ -1,4 +1,4 @@
-<?php include "_base.php" ?>
+<?php include "_styling.php" ?>
 
 METHOD:
 <?= $method ?>
@@ -13,3 +13,10 @@ QUERY STRING:
     <input type="hidden" name="">
     <input type="submit" value="GO POST!">
 </form>
+
+<?php
+if(isset($flash))
+{
+  echo $flash;
+}
+?>

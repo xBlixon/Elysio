@@ -3,6 +3,11 @@
     "description": "Elysio framework.",
     "type": "project",
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Elysio\\": "new-features/"
+        }
+    },
     "authors": [
         {
             "name": "Xawier Slupik",

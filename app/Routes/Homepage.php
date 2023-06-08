@@ -18,11 +18,11 @@ class Homepage extends Route
             return $this->redirectTo("/redirected");
         }
 
-        $this->response->addHeaders("Some: Header");
-        $this->response->addHeaders("Another: Header");
+        $this->response->addHeaders(["Some: Header", "Another: Header"]);
         return $this->render("homepage.view.php", [
             'method' => 'GET',
-            'query' => $this->request->params
+            'query' => $this->request->params,
+            'flash' => $this->session->getFlash()
         ]);
     }
 
