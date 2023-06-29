@@ -1,11 +1,11 @@
 {
-    "name": "elysio/framework",
-    "description": "Elysio framework.",
+    "name": "velsym/framework",
+    "description": "Velsym framework.",
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Elysio\\": "new-features/"
+            "Velsym\\": "new-features/"
         }
     },
     "authors": [
@@ -16,6 +16,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "elysio/core": "dev-main"
+        "velsym/core": "dev-main"
     }
 }

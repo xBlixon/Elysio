@@ -2,8 +2,8 @@
 
 namespace Routes;
 
-use Elysio\Http\Response;
-use Elysio\Http\Route;
+use Velsym\Http\Response;
+use Velsym\Http\Route;
 
 class Registration extends Route
 {

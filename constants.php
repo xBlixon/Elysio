@@ -4,7 +4,7 @@
 
 const OS_SLASH = DIRECTORY_SEPARATOR;
 
-/* ELYSIO */
+/* VELSYM */
 
 const _PROJECT_ROOT = __DIR__;
 const _APP = _PROJECT_ROOT . OS_SLASH . "app" . OS_SLASH;

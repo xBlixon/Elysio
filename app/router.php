@@ -1,9 +1,9 @@
 <?php
 
-use Elysio\Http\Exceptions\RouteMethodException;
-use Elysio\Http\Request;
-use Elysio\Http\Response;
-use Elysio\Http\Route;
+use Velsym\Http\Exceptions\RouteMethodException;
+use Velsym\Http\Request;
+use Velsym\Http\Response;
+use Velsym\Http\Route;
 
 $request = Request::getInstance();
 
@@ -28,7 +28,7 @@ if(key_exists($request->path, $routes))
         $response = $route->$method();
     } catch (RouteMethodException $exception) {
         $output = $exception->getMessage();
-        require _VIEWS . "Errors/Elysio/RouteMethodException.view.php";
+        require _VIEWS . "Errors/Velsym/RouteMethodException.view.php";
         die();
     }
 
